@@ -11,6 +11,7 @@ if (process.env.NODE_ENV !== "dev") {
       // origin: 'http://localhost:3000'
       // origin: 'https://northone-fp6p0zqmv-79sphelps-projects.vercel.app/'
       origin: 'https://northone-79sphelps-projects.vercel.app',
+      // origin: 'northone-q3c76o9by-79sphelps-projects.vercel.app'
   };
   app.use(cors(corsOptions));
 }

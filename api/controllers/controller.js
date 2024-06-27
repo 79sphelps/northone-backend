@@ -12,6 +12,7 @@ exports.create = (req, res) => {
     description: req.body.description,
     status: req.body.status ? req.body.status : false,
     dueDate: req.body.dueDate,
+    start: req.body.start,
   });
 
   todo

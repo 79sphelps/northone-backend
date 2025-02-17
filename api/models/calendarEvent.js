@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
-  const Todo = mongoose.model(
-    "todo",
+  const CalendarEvent = mongoose.model(
+    "calendarEvent",
     mongoose.Schema(
       {
         title: String,
@@ -13,5 +13,5 @@ module.exports = (mongoose) => {
     )
   );
 
-  return Todo;
+  return CalendarEvent;
 };

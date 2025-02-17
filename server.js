@@ -4,8 +4,6 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
-console.log(`Server one`);
-
 if (process.env.NODE_ENV !== "dev") {
   app.use(cors());
 } else {
@@ -21,7 +19,6 @@ if (process.env.NODE_ENV !== "dev") {
 }
 
 app.use(bodyParser.json());
-console.log(`Server two`);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require('./api/models');
@@ -35,7 +32,7 @@ db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
 if (process.env.NODE_ENV !== "dev") {
   app.use('/', express.static(path.join(__dirname, '/build')));
 }
-console.log(`Server three`);
+
 require('./api/routes')(app);
 
 if (process.env.NODE_ENV !== "dev") {
@@ -47,7 +44,7 @@ if (process.env.NODE_ENV !== "dev") {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 }
-console.log(`Server four`);
+
 // catch 404 and forward to error handler
 // note this is after all good routes and is not an error handler
 // to get a 404, it has to fall through to this route - no error involved
@@ -72,7 +69,7 @@ if (app.get('env') === 'development') {
       });
   });
 }
-console.log(`Server five`);
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {

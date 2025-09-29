@@ -4,6 +4,21 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
+const url = 'https://northone.onrender.com/';
+const interval = 300000; // 5 minutes in milliseconds
+
+function reloadWebsite() {
+  axios.get(url)
+    .then(response => {
+      console.log('Website reloaded successfully');
+    })
+    .catch(error => {
+      console.error('Error reloading website:', error);
+    });
+}
+
+setInterval(reloadWebsite, interval); // Due to Render.com sleeping after 5 mins of inactivity
+
 if (process.env.NODE_ENV !== "dev") {
   app.use(cors());
 } else {

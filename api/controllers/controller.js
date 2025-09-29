@@ -78,6 +78,8 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
+  console.log('Updating calendar event with id:', id);
+
   CalendarEvent.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {

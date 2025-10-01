@@ -2,7 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const cronJob = require('./cron').job
 const app = express();
+
+job.start();
 
 const url = 'https://northone.onrender.com/';
 const interval = 300000; // 5 minutes in milliseconds
@@ -37,6 +40,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require('./api/models');
+const { job } = require('./cron');
 db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to the DB'))
   .catch(err => {
